@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@300;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F4EFE6;
+  color: #2C2520;
+  font-family: 'Noto Serif KR', 'Playfair Display', serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.book-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; justify-content: center; align-items: center;
+  background: radial-gradient(circle, #F9F6F0 60%, #E8DFD0 100%);
+  z-index: 10;
+}
+
+.book-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  border: 1px solid #D1C4B0;
+  outline: 4px double #2C2520;
+  outline-offset: -12px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #B8860B;
+  font-size: 3.5rem;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-top: 15px;
+  color: #6E6053;
+  font-size: 0.95rem;
+}
+
+.menu-buttons {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.vintage-btn {
+  background: #2C2520;
+  color: #F4EFE6;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-family: 'Noto Serif KR', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.vintage-btn:hover {
+  background: #B8860B;
+  color: #FFF;
+}
+
+.vintage-btn-sm {
+  background: none;
+  border: 1px solid #2C2520;
+  color: #2C2520;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.vintage-btn-sm:hover {
+  background: #2C2520;
+  color: #F4EFE6;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(44, 37, 32, 0.6);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 20;
+}
+
+.modal-content {
+  background: #F9F6F0;
+  padding: 30px;
+  max-width: 500px;
+  border: 1px solid #2C2520;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
+  text-align: justify;
+}
+
+.modal-content h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.modal-content hr {
+  border: 0; border-top: 1px solid #D1C4B0; margin-bottom: 15px;
+}
+
+.modal-content p {
+  font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;
+}
+
+#sim-interface {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: #EFEAE0;
+  border-right: 2px solid #2C2520;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 5;
+}
+
+.sidebar h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #2C2520;
+  padding-bottom: 5px;
+}
+
+.desc {
+  font-size: 0.85rem; color: #6E6053; line-height: 1.4;
+}
+
+.tool-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-group {
+  padding-top: 4px;
+  border-top: 1px dashed #D1C4B0;
+}
+
+.tool-btn {
+  background: #F4EFE6;
+  border: 1px solid #D1C4B0;
+  color: #2C2520;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.tool-btn:hover {
+  background: #E8DFD0;
+}
+
+.tool-btn.active {
+  background: #2C2520;
+  color: #F4EFE6;
+  font-weight: bold;
+}
+
+.stats {
+  background: #F4EFE6;
+  padding: 12px;
+  border: 1px dashed #2C2520;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.canvas-container {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  background: #FAF8F5;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hidden { display: none !important; }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Study on the Pathfinding of Physarum</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div id="menu-screen" class="book-overlay">
+    <div class="book-content">
+      <h1>A Study on the<br>Pathfinding of<br><span class="highlight">PHYSARUM</span></h1>
+      <p class="subtitle">뇌 없는 천재, 점균류의 최적 경로 탐색에 관한 생물학적 고찰</p>
+      <div class="menu-buttons">
+        <button id="btn-start" class="vintage-btn">실험 시작하기 (Start Simulation)</button>
+        <button id="btn-about" class="vintage-btn">점균류란 무엇인가 (About)</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="about-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Observations on Physarum polycephalum</h2>
+      <hr>
+      <p><strong>점균류(Physarum polycephalum)</strong>는 뇌도 신경계도 없는 단세포 생물이지만, 놀라운 지능적 행동을 보이는 생명체입니다.</p>
+      <p>아메바와 유사한 세포들이 모여 하나의 거대한 세포체를 형성하며, 먹이를 향해 <strong>관 네트워크(Tubular Network)</strong>를 뻗어 나갑니다. 먹이와 연결된 경로는 양의 피드백으로 점점 굵어지고, 비효율적인 경로는 자연스럽게 퇴화합니다.</p>
+      <p>2010년 도쿄대 연구진은 점균류가 <strong>도쿄 수도권 철도망과 거의 동일한 최적 네트워크</strong>를 형성하는 것을 발견했습니다. 뇌 없는 생물이 인간 공학자들의 수십 년 설계를 재현한 것입니다.</p>
+      <p>이 실험실에서 당신은 먹이를 배치하고, 점균류가 스스로 최적 경로를 찾아가는 과정을 관찰할 수 있습니다.</p>
+      <button id="btn-close-about" class="vintage-btn-sm">닫기</button>
+    </div>
+  </div>
+
+  <div id="sim-interface" class="hidden">
+    <div class="sidebar">
+      <h2>LAB TOOLS</h2>
+      <p class="desc">도구를 선택한 뒤 실험장을 클릭/드래그하세요.</p>
+      <div class="tool-group">
+        <button class="tool-btn active" data-tool="food">🟡 먹이 (오트밀)</button>
+        <button class="tool-btn" data-tool="seed">🟢 점균류 씨앗</button>
+        <button class="tool-btn" data-tool="wall">🧱 벽 (장애물)</button>
+        <button class="tool-btn" data-tool="light">🔦 빛 (혐광 자극)</button>
+        <button class="tool-btn" data-tool="moisture">💧 습기 (성장 촉진)</button>
+        <button class="tool-btn" data-tool="remove-food">🗑️ 먹이 제거</button>
+      </div>
+      <div class="map-group">
+        <label id="btn-upload-map" class="vintage-btn-sm" style="display:block;text-align:center;cursor:pointer;">
+          🗺️ 지도 올리기
+          <input type="file" id="map-input" accept="image/*" style="display:none;">
+        </label>
+        <button id="btn-remove-map" class="vintage-btn-sm hidden" style="width:100%;margin-top:6px;">🗺️ 지도 제거</button>
+      </div>
+      <div class="stats">
+        <div>입자 수: <span id="stat-particles">0</span> / 5000</div>
+        <div>활성 먹이원: <span id="stat-food">0</span>개</div>
+        <div>네트워크 효율: <span id="stat-efficiency">0%</span></div>
+      </div>
+      <button id="btn-back-menu" class="vintage-btn-sm" style="margin-top:auto;">연구실 나가기</button>
+    </div>
+    <div class="canvas-container">
+      <canvas id="sim-canvas"></canvas>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
